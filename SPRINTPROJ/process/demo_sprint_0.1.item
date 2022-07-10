@@ -43,7 +43,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" show="false" value="enc:system.encryption.key.v1:DwRZbp9ECn5QzsX8XSklGtWLLLkvWN3H55y3mAJv"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" show="false" value="enc:system.encryption.key.v1:nyIixgbpom3JQtfWIWkChfjLIs3yg6qZ4shHWDPd"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
@@ -78,7 +78,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="USER" show="false" value="&quot;&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" show="false" value="enc:system.encryption.key.v1:5U1PJsiJ/+ETERiEVLzh3UVYBSWxq4ud3yCAA7Yr"/>
+    <elementParameter field="PASSWORD" name="PASS" show="false" value="enc:system.encryption.key.v1:4UYuJtoP1kRNWZjA9ORaz1xUFOwhZFgpRDzrjZ56"/>
     <elementParameter field="FILE" name="DBFILE" show="false" value="&quot;&quot;"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" show="false" value="&quot;&quot;"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" show="false" value="&quot;&quot;"/>
@@ -548,6 +548,7 @@
   </node>
   <node componentName="tRowGenerator" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="160" posY="736">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tRowGenerator_4"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TEXT" name="NB_ROWS" show="false" value="15"/>
     <elementParameter field="TABLE" name="VALUES" show="false">
       <elementValue elementRef="SCHEMA_COLUMN" value="FirstName"/>
@@ -578,6 +579,7 @@
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="320" posY="736">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_2"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
@@ -627,6 +629,7 @@
   </node>
   <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="448" posY="736">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_5"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
     <elementParameter field="RADIO" name="VERTICAL" value="false"/>
@@ -1016,7 +1019,6 @@
   </node>
   <node componentName="tRowGenerator" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="192" posY="1440">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tRowGenerator_6"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TEXT" name="NB_ROWS" show="false" value="15"/>
     <elementParameter field="TABLE" name="VALUES" show="false">
       <elementValue elementRef="SCHEMA_COLUMN" value="ShopName"/>
@@ -1047,13 +1049,12 @@
   </node>
   <node componentName="tFilterRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="352" posY="1440">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFilterRow_34"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CLOSED_LIST" name="LOGICAL_OP" value="&amp;&amp;"/>
     <elementParameter field="TABLE" name="CONDITIONS">
-      <elementValue elementRef="INPUT_COLUMN" value="Price"/>
+      <elementValue elementRef="INPUT_COLUMN" value="Item"/>
       <elementValue elementRef="FUNCTION" value=""/>
-      <elementValue elementRef="OPERATOR" value="&lt;"/>
-      <elementValue elementRef="RVALUE" value="75"/>
+      <elementValue elementRef="OPERATOR" value="=="/>
+      <elementValue elementRef="RVALUE" value="'A%'"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_ADVANCED" value="false"/>
     <elementParameter field="MEMO_JAVA" name="ADVANCED_COND" show="false" value="// code sample : use input_row to define the condition.&#10;// input_row.columnName1.equals(&quot;foo&quot;) ||!(input_row.columnName2.equals(&quot;bar&quot;))&#10;// replace the following expression by your own filter condition &#10;input_row.columnName1.equals(input_row.columnName2)&#10;&#9;&#9;&#9;"/>
@@ -1102,9 +1103,8 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="480" posY="1440">
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="544" posY="1440">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_11"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
     <elementParameter field="RADIO" name="VERTICAL" value="false"/>
@@ -1146,7 +1146,6 @@
   </node>
   <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="480" posY="1568">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_13"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
     <elementParameter field="RADIO" name="VERTICAL" value="false"/>
@@ -1235,10 +1234,12 @@
   </connection>
   <connection connectorName="FLOW" label="row7" lineStyle="0" metaname="tRowGenerator_4" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_4" target="tMap_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row7"/>
   </connection>
   <connection connectorName="FLOW" label="out2" lineStyle="0" metaname="out2" offsetLabelX="0" offsetLabelY="0" source="tMap_2" target="tLogRow_5">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="out2"/>
   </connection>
   <connection connectorName="FLOW" label="row8" lineStyle="0" metaname="tRowGenerator_5" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_5" target="tReplicate_1">
@@ -1288,17 +1289,14 @@
   </connection>
   <connection connectorName="FLOW" label="row17" lineStyle="0" metaname="tRowGenerator_6" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_6" target="tFilterRow_34">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row17"/>
   </connection>
-  <connection connectorName="FILTER" label="row18" lineStyle="0" metaname="FILTER" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tFilterRow_34" target="tLogRow_11">
+  <connection connectorName="FILTER" label="row18" lineStyle="0" metaname="FILTER" offsetLabelX="50" offsetLabelY="9" outputId="1" source="tFilterRow_34" target="tLogRow_11">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row18"/>
   </connection>
   <connection connectorName="REJECT" label="row20" lineStyle="0" metaname="REJECT" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tFilterRow_34" target="tLogRow_13">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row20"/>
   </connection>
   <subjob>
@@ -1336,13 +1334,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_904150ab-3fae-4095-ae4d-e96fc6a0b0e7"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>dChOVEUGN452VsGJybKdGfcEMbCV4KRxyU/9PCarnC1bYbAkWTmKIiMTMIjCdfK8GNEZ4vAW3l42&#13;
-sD5XTKVAyA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_1bdd390d-2ec5-495b-86b0-6a21223c1ad5"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>UU3QW5VWhVkLm3Zr82qw23rOP+yCCzPVP1RrmhqNYnlXeNBODzQqxN/XSm+jvp38CbBzlr78P1/I&#13;
-wqKuydbnQQ==</DigestValue></Reference></SignedInfo><SignatureValue>JgS5Lb0QvkhnwVyAURvH/qE6vvl54gEWlto1M3Qm8b2nJq8U0H7ReSVS4tXVRKBt4NutMFYAz3Ut&#13;
-XZD6EMAvsqw98ad6oIQ7oSO5aTF+aVhxpDxkNUHP9c+dESyrx1611GC2fkfjqz94cLSwhlkjshBz&#13;
-XXBNdMo3ZSJnzq24wj6fuIYSacKA9iXAH3VRc8edXAnRC4JA3nerD9uLoNMRFVku5mmSgB5A3P7+&#13;
-xmmnKmbxFhzOnPOBFARyItvKEnGd05uIGtZrTzHorLaItFlOZUff7e0Slr+M4iV7CYUkoyiaYg9o&#13;
-Uhvgoeji/ol9e06qJXo5fVkoJn0EWRd1qxZYMQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_33a188db-d680-49ec-9417-b33cbc85c813"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>yrftK0+Pv9b2FqbjSuwPRCNec32ekUew+VzXUfNyAYX37ZhNxFIHEH8Cg34qMNMZc7R7Exqjj0c8&#13;
+zi1euupfeA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_9ee9f9e3-429d-4b17-b789-4442cd9e6926"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>4/UQm3RV6Iz2YVOe+zj9QcnzXQ7Jt8izFBHszTTNZOjnR25JK7kJEltQpbcPR89dBBYYBTXeO04z&#13;
+LmJ1VMlZ5A==</DigestValue></Reference></SignedInfo><SignatureValue>iXAnEhn+csZMOEINF0EN2gvBajGtvmjDDMgltg2sCeV+HKHan8U3C2s42nDVn6zz6B/QZSThBUlK&#13;
+oi9AXDuOJNTmonp3x1rD/mPNSsTRWKbP0cS68q+9kkCzlFhyewUe2c9sC+VrNkrWpybepi7kCxfp&#13;
+ln2K73DF0E2OeOb7d1l9hoUvQahzNNsUKSFvKpcfoZmOsdSACQnZHDQQUa3qFZRIxeUTNBilYX5K&#13;
+eu5aWuYOpNG20jWjEfJz+pCoOabqmsBMikC/4FsD3WI5Me1wMreFXcgb7vRofSAEuU/BJucHtOBM&#13;
+Ygex9P8tUNVT/c8RMQ96YcCeT763LgqpSZBhqg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
 DAYDVQQIEwVQYXJpczEOMAwGA1UEBxMFUGFyaXMxFDASBgNVBAoTC1RhbGVuZCBJbmMuMQwwCgYD&#13;
 VQQLDANSJkQxFjAUBgNVBAMMDVRhbGVuZCBSJkQgQ0ExIjAgBgkqhkiG9w0BCQEWE3NlY3VyaXR5&#13;
 QHRhbGVuZC5jb20wHhcNMTkwNjAzMDgxODIwWhcNMjkwNjAzMDAwMDAwWjB7MSgwJgYDVQQDEx9U&#13;
@@ -1364,4 +1362,4 @@ hakvpzhOyLo91h8YAQrEZJdNuKA8IYmBrFZQZDCz0uywKSyFfzPyJhvxylCLG/iDPPfE0VWcrMJ/&#13
 WQJly/2XPg/NBCTF3pSKS0kCiA7PeaI3cWkMYYA3PMwYDvzqs1opBRglG7ikj0bQxSm3lcjMuuvW&#13;
 gBRksFKjP3K/nztsjSoYITOM9jR29ReIL3v0E8RbAFwA2RGq6Dxd0ixfbucMesy5Gnr8tfYy6rW+&#13;
 qSQqd3ah4+PSzBNVwIB4ytpdrG3SlhCI2i2Th8ek8Sjsaquh9qPAerWNd2+84HWOOGj1Xe1qc6vg&#13;
-qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_1bdd390d-2ec5-495b-86b0-6a21223c1ad5" Target="#_904150ab-3fae-4095-ae4d-e96fc6a0b0e7"><Timestamp>2022-07-10 04:41:00</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_9ee9f9e3-429d-4b17-b789-4442cd9e6926" Target="#_33a188db-d680-49ec-9417-b33cbc85c813"><Timestamp>2022-07-10 05:01:33</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
