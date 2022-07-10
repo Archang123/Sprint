@@ -43,7 +43,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" show="false" value="enc:system.encryption.key.v1:qlTBzWe/+LsqAlY20y/0mkttCyEl8Rl5wad/x9aT"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" show="false" value="enc:system.encryption.key.v1:le+/7WGd2gB7QQrjN4bdIHcW7p6ILUXfThxcxOfu"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
@@ -78,7 +78,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="USER" show="false" value="&quot;&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" show="false" value="enc:system.encryption.key.v1:hsrE+YNQorueBHAMt0+gDQRk8njlogtWCcg95ieS"/>
+    <elementParameter field="PASSWORD" name="PASS" show="false" value="enc:system.encryption.key.v1:fAqyuCe1xAtIZmdj5rhd44cS6qbXDmKpnCgiNJDW"/>
     <elementParameter field="FILE" name="DBFILE" show="false" value="&quot;&quot;"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" show="false" value="&quot;&quot;"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" show="false" value="&quot;&quot;"/>
@@ -259,6 +259,7 @@
   </node>
   <node componentName="tRowGenerator" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="192" posY="416">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tRowGenerator_3"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TEXT" name="NB_ROWS" show="false" value="15"/>
     <elementParameter field="TABLE" name="VALUES" show="false">
       <elementValue elementRef="SCHEMA_COLUMN" value="Firstname"/>
@@ -294,6 +295,7 @@
   </node>
   <node componentName="tAggregateRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="416" posY="416">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tAggregateRow_1"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TABLE" name="GROUPBYS">
       <elementValue elementRef="OUTPUT_COLUMN" value="State"/>
       <elementValue elementRef="INPUT_COLUMN" value="State"/>
@@ -318,6 +320,7 @@
   </node>
   <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="9" offsetLabelY="0" posX="576" posY="416">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_4"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
     <elementParameter field="RADIO" name="VERTICAL" value="false"/>
@@ -986,6 +989,7 @@
   </node>
   <node componentName="tWarn" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="768" posY="416">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tWarn_2"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TEXT" name="MESSAGE" value="&quot;Total Sales in a State&quot;"/>
     <elementParameter field="TEXT" name="CODE" value="42"/>
     <elementParameter field="CLOSED_LIST" name="PRIORITY" value="4"/>
@@ -1003,10 +1007,19 @@
   </node>
   <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="224" posY="544">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJava_2"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="MEMO_JAVA" name="CODE" value="String foo = &quot;Finding out total sales in a state&quot;;&#10;System.out.println(foo);"/>
     <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tJava_2"/>
+  </node>
+  <node componentName="tRowGenerator" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="192" posY="1696">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tRowGenerator_2"/>
+    <elementParameter field="TEXT" name="NB_ROWS" show="false" value="100"/>
+    <elementParameter field="TABLE" name="VALUES" show="false"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tRowGenerator_2"/>
   </node>
   <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tRowGenerator_1" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_1" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
@@ -1028,9 +1041,11 @@
   </connection>
   <connection connectorName="FLOW" label="row5" lineStyle="0" metaname="tRowGenerator_3" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_3" target="tAggregateRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row5"/>
   </connection>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tRowGenerator_3" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_3" target="tJava_2">
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk3"/>
   </connection>
   <connection connectorName="FLOW" label="row6" lineStyle="0" metaname="tAggregateRow_1" offsetLabelX="0" offsetLabelY="0" source="tAggregateRow_1" target="tLogRow_4">
@@ -1040,9 +1055,11 @@
       <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
     </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row6"/>
   </connection>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tLogRow_4" offsetLabelX="0" offsetLabelY="0" source="tLogRow_4" target="tWarn_2">
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk8"/>
   </connection>
   <connection connectorName="FLOW" label="row7" lineStyle="0" metaname="tRowGenerator_4" offsetLabelX="0" offsetLabelY="0" source="tRowGenerator_4" target="tMap_2">
@@ -1182,13 +1199,18 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_7a790030-fc68-4ffc-8c9c-6453c290a728"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>42KalIUsi8mLHXLaPVl/1BVYrs8TZVrBlv5eOxjl7Y+p/xHUxmK+enO9PGqX3aeZpVxhTSoSJA2M&#13;
-TUUDCnftYw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_dff815fa-1fbc-472a-9a26-fc298d626498"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>T8YIkU3FE4Rthy3xTNw2Fl0zEBABKOm1ialaGUNulzSQKC5BzFQZ0IWvwHlXyCNX3cH+UO69joUT&#13;
-u26n2rJCoQ==</DigestValue></Reference></SignedInfo><SignatureValue>K4Dg8kUE+pZqvGsZthY96aJ6eU+kwpiVuPxEWEPVGvKwio/7ROceNDOFRrXtyWaRS4DASZ3+jhj7&#13;
-+R0XD7sYfnseIRbNTX/bqVc7lKchMy7rK5YFNtJvWpTyQZaNyklztagwuPbXovPAg6MhRBSgLFxz&#13;
-s0+lcWXyIHCvB67rcMc/Pv+U5DkYvhNaDI66nk2v2Ux98Zl7cMMNee5ibSf9uIXTKTfyK28fdYPH&#13;
-hXvR5ZDRAFL9l3NyTH6dQ1ClXUlua2qVKk3ocg6gcGUJcy0BnjyX/eoutNOdwWJqXxnixLZcDRef&#13;
-GRviC8yDnANPstIV3yZbUZh4Xkq+Z6uRjA0EDQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tRowGenerator_2"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_37257bf3-f9c5-4605-a7e1-57ae8538d5f7"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>+8+fB0EKpwj6XU0FRUj0t6SA3Ne+nbopn5m7bFEcrrhqDoWlV+VbFY7Lw57A/WR7EPwm1ZRzg3dI&#13;
+VYK1lQqkvw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_c223fffc-081a-4434-ae57-92fb1bc14fec"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>4nrCYXZePvM8Y8beKs5i7L4KgW74skrJ9MhZO5DfLLqbuo7A0cKKCwsV6uUDk6E5vHL+6s6EZ7Z2&#13;
+gGBLUY1/WA==</DigestValue></Reference></SignedInfo><SignatureValue>cArghPhDW3Hjp70oRh3mD1pF+9WQ/JWQnkixRdtFwikBQFSUNYA66o/4FbULvSTZC4XUT4fA59d+&#13;
+gThGrBFV0zokDvq6L1cqIvEN0CRfqnh8nvJz3gM+BH+7G15fN893kCXsBQH6Tg6xiMNQ3asDFXyY&#13;
+kaH4WzwWLyJNBzMBgpj3CKDhnxmM+u6QA8AzN56Dk14JXheAa+eWC2BzZ6IoG9BbiuC/xjb2h8eS&#13;
+fFWHAxmD793W2mOdCUa89hvf2Gg59/RBnuQ0RR3SiLjytKb0MGc3k0NdCaLOkYkKrLtjJMYcRSSs&#13;
+SYlzgJ7zSIQ7Cr8ISBMRv4LkFeq3Em24mEKgKQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
 DAYDVQQIEwVQYXJpczEOMAwGA1UEBxMFUGFyaXMxFDASBgNVBAoTC1RhbGVuZCBJbmMuMQwwCgYD&#13;
 VQQLDANSJkQxFjAUBgNVBAMMDVRhbGVuZCBSJkQgQ0ExIjAgBgkqhkiG9w0BCQEWE3NlY3VyaXR5&#13;
 QHRhbGVuZC5jb20wHhcNMTkwNjAzMDgxODIwWhcNMjkwNjAzMDAwMDAwWjB7MSgwJgYDVQQDEx9U&#13;
@@ -1210,4 +1232,4 @@ hakvpzhOyLo91h8YAQrEZJdNuKA8IYmBrFZQZDCz0uywKSyFfzPyJhvxylCLG/iDPPfE0VWcrMJ/&#13
 WQJly/2XPg/NBCTF3pSKS0kCiA7PeaI3cWkMYYA3PMwYDvzqs1opBRglG7ikj0bQxSm3lcjMuuvW&#13;
 gBRksFKjP3K/nztsjSoYITOM9jR29ReIL3v0E8RbAFwA2RGq6Dxd0ixfbucMesy5Gnr8tfYy6rW+&#13;
 qSQqd3ah4+PSzBNVwIB4ytpdrG3SlhCI2i2Th8ek8Sjsaquh9qPAerWNd2+84HWOOGj1Xe1qc6vg&#13;
-qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_dff815fa-1fbc-472a-9a26-fc298d626498" Target="#_7a790030-fc68-4ffc-8c9c-6453c290a728"><Timestamp>2022-07-10 11:33:15</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_c223fffc-081a-4434-ae57-92fb1bc14fec" Target="#_37257bf3-f9c5-4605-a7e1-57ae8538d5f7"><Timestamp>2022-07-10 11:56:58</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
